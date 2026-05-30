@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resilire Gunworks — FFL Transfers, Sales & Gunsmithing</title>
+<meta name="description" content="Resilire Gunworks — licensed FFL dealer offering firearm transfers, sales, and gunsmithing. Contact us by phone or email." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0d0e;
+    --bg-2: #121517;
+    --panel: #16191c;
+    --line: #262b2f;
+    --text: #e8e6e3;
+    --muted: #9aa1a6;
+    --accent: #c1873b;       /* brass / FDE */
+    --accent-2: #d89c4a;
+    --danger: #8a2b2b;
+    --max: 1080px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .brand { font-family: "Oswald", "Inter", sans-serif; letter-spacing: 0.02em; }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { color: var(--text); }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* Top bar */
+  header {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(11,13,14,0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 1.35rem; font-weight: 700; color: var(--text); text-transform: uppercase; }
+  .brand .mark {
+    width: 34px; height: 34px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), #7a531f);
+    display: grid; place-items: center; color: #0b0d0e; font-weight: 700; font-family: "Oswald";
+  }
+  .nav-cta { display: flex; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 11px 18px; border-radius: 6px;
+    font-weight: 600; font-size: 0.95rem; border: 1px solid transparent; cursor: pointer;
+    transition: transform .05s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: #0b0d0e; }
+  .btn-primary:hover { background: var(--accent-2); color: #0b0d0e; }
+  .btn-ghost { border-color: var(--line); color: var(--text); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--text); }
+  @media (max-width: 620px) { .nav-cta .btn-ghost { display: none; } }
+
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: 96px 0 72px;
+    background:
+      radial-gradient(1200px 500px at 70% -10%, rgba(193,135,59,0.10), transparent 60%),
+      linear-gradient(180deg, var(--bg-2), var(--bg));
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent-2); font-weight: 600; margin-bottom: 18px;
+  }
+  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; text-transform: uppercase; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.lead { color: var(--muted); font-size: 1.15rem; max-width: 620px; margin-top: 18px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+
+  /* Services */
+  section.block { padding: 72px 0; }
+  .section-head { margin-bottom: 36px; }
+  .section-head h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); text-transform: uppercase; }
+  .section-head .rule { width: 56px; height: 3px; background: var(--accent); margin-top: 14px; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 820px) { .cards { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 28px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .card .ico { font-size: 1.6rem; margin-bottom: 14px; }
+  .card h3 { font-size: 1.25rem; text-transform: uppercase; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 0.98rem; }
+
+  /* Contact */
+  .contact {
+    background: linear-gradient(180deg, var(--bg), var(--bg-2));
+    border-top: 1px solid var(--line);
+  }
+  .contact-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: start; }
+  @media (max-width: 820px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-card {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 32px;
+  }
+  .contact-row { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row .ico {
+    width: 44px; height: 44px; flex: none; border-radius: 8px; display: grid; place-items: center;
+    background: rgba(193,135,59,0.12); color: var(--accent-2); font-size: 1.2rem;
+  }
+  .contact-row .label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .contact-row .value { font-size: 1.15rem; font-weight: 600; color: var(--text); }
+  .contact-row .value a { color: var(--text); }
+  .contact-row .value a:hover { color: var(--accent-2); }
+
+  .note {
+    color: var(--muted); font-size: 0.95rem; margin-top: 8px;
+  }
+  .badge-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .badge {
+    font-size: 0.8rem; padding: 7px 12px; border: 1px solid var(--line); border-radius: 999px;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 32px 0; color: var(--muted); font-size: 0.9rem; }
+  .foot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .disclaimer { font-size: 0.8rem; color: #6f767b; max-width: 720px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="mark">RG</span> Resilire Gunworks</div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="#services">Services</a>
+      <a class="btn btn-primary" href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Licensed FFL Dealer</span>
+    <h1>Resilire <span>Gunworks</span></h1>
+    <p class="lead">Firearm transfers, sales, and gunsmithing — handled with care, compliance, and craftsmanship. Reach out and we'll take care of the rest.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="tel:+15023308141">Call (502) 330-8141</a>
+      <a class="btn btn-ghost" href="mailto:resiliregunworks@proton.me">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What We Do</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">&#128230;</div>
+        <h3>FFL Transfers</h3>
+        <p>Buying online or from out of state? Have your firearm shipped to us and we'll handle the transfer and background check, start to finish.</p>
+      </div>
+      <div class="card">
+        <div class="ico">&#127919;</div>
+        <h3>Firearm Sales</h3>
+        <p>New and used firearms, sourced to fit your needs and budget. Ask us what we have available or what we can order in for you.</p>
+      </div>
+      <div class="card">
+        <div class="ico">&#128295;</div>
+        <h3>Gunsmithing</h3>
+        <p>Repairs, maintenance, upgrades, and custom builds. Keep your firearms running right with work done by hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block contact" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Get In Touch</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-row">
+          <div class="ico">&#128222;</div>
+          <div>
+            <div class="label">Phone &amp; Text</div>
+            <div class="value"><a href="tel:+15023308141">(502) 330-8141</a></div>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="ico">&#9993;</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value"><a href="mailto:resiliregunworks@proton.me">resiliregunworks@proton.me</a></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="note">The fastest way to reach us is by phone or text. For transfers, message us before having a firearm shipped so we can confirm details and provide our FFL information to the seller.</p>
+        <div class="badge-list">
+          <span class="badge">FFL Transfers</span>
+          <span class="badge">Sales</span>
+          <span class="badge">Gunsmithing</span>
+          <span class="badge">By Appointment</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand" style="font-size:1.1rem;"><span class="mark" style="width:28px;height:28px;font-size:0.9rem;">RG</span> Resilire Gunworks</div>
+      <p class="disclaimer">All firearm transfers and sales are conducted in accordance with all applicable federal, state, and local laws. A background check is required for all transfers. Must be of legal age to purchase or receive a firearm.</p>
+    </div>
+    <div>&copy; <span id="year"></span> Resilire Gunworks</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
